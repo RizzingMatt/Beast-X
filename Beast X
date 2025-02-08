@@ -1,0 +1,124 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "✨Beast X✨",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "Enjoy",
+   LoadingSubtitle = "by Matt",
+   Theme = "Serenity - Serenity", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "PNE288dW", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "✨Beast X✨",
+      Subtitle = "🔑Key System🔑",
+      Note = "Key in https://discord.gg/PNE288dW ", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"reaper_4564534354345463543645464545"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local PlayerTab = Window:CreateTab("😎Player😎", nil) -- Title, Image
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "Walk Speed",
+   Range = {16, 500},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Fly",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/yjitnxkV"))()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Noclip",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/XRSf7uct"))()
+   end,
+})
+
+local AnimationsTab = Window:CreateTab("🦾Animations🦾", nil) -- Title, Image
+
+local Button = AnimationsTab:CreateButton({
+   Name = "Fe ShapeShifter (Not Mine)",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastefy.app/2C3cRXXp/raw"))()
+   end,
+})
+
+local Button = AnimationsTab:CreateButton({
+   Name = "Jerk Off",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Infinite Jump(U Need To Click Space Bar)",
+   Callback = function()
+_G.infinjump = not _G.infinjump
+
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="✨Beast X✨"; Text="The ✨Beast X✨ Infinite Jump is ready!"; Duration=5;})
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
+
+local AimlockTab = Window:CreateTab("🔫Aimlock🔫", nil) -- Title, Image
+
+local Button = AimlockTab:CreateButton({
+   Name = "Esp (H To Toggle)",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/VxbKntTU"))()
+   end,
+})
+
+local Button = AimlockTab:CreateButton({
+   Name = "Aimbot (In The Right Bottom Corner Click Menu)",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/08Z6WSgZ"))()
+   end,
+})
